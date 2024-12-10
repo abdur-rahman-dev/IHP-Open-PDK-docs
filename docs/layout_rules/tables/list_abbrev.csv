@@ -1,10 +1,10 @@
-BiCMOS,BipolarCMOS
-HBT,HeterojunctionBipolarTransistor
-IC,IntegratedCircuit
-IHP,InnovationsforHighPerformanceMicroelectronics
+BiCMOS,Bipolar CMOS
+HBT,Heterojunction Bipolar Transistor
+IC,Integrated Circuit
+IHP,Innovations for High Performance Microelectronics
 MIM,Metal-Insulator-Metal
-NMOS,NegativeChannelMetalOxideSemiconductor
-OPC,OpticalProximityCorrection
-PMOS,PositiveChannelMetalOxideSemiconductor
-RD,ReferenceDocument
-SiGe,SiliconGermanium
+NMOS,Negative Channel Metal Oxide Semiconductor
+OPC,Optical Proximity Correction
+PMOS,Positive Channel Metal Oxide Semiconductor
+RD,Reference Document
+SiGe,Silicon Germanium
