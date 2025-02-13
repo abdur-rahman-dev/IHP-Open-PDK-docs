@@ -140,22 +140,6 @@ To finish the installation execute:
     make 
     sudo make install
 
-
-Ngspice is an open source simulator hosted at `this <https://sourceforge.net/p/ngspice/ngspice/ci/master/tree/>`_ page.
-The tool is well documented and the user manual can be found `here <https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml>`_.
-In order to install ngspice the recomended method is the following:
-
-.. code-block:: bash
-    
-    git clone https://git.code.sf.net/p/ngspice/ngspice ngspice-ngspice
-    cd ngspice-ngspice
-    ./configure --enable-osdi
-    make
-    sudo make install
-    cd ..
-    rm -rf ngspice-ngspice
-
-Xyce basic example
 ===================
 A basic spice level netlist, which simulates DC sweep resistors, is shown below:
 
