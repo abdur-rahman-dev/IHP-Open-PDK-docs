@@ -56,8 +56,8 @@ The vast majority can be build form sources however some of them require manual 
   sudo apt-get install -y libgoogle-perftools-dev 
   sudo apt-get install -y gengetopt groff pod2pdf libhpdf-dev
   sudo apt-get install -y libfftw3-dev 
-  suoo apt-get install -y libxml-libxml-perl libgd-perl
-  suoo apt-get install -y libsuitesparse-dev gfortran swig libspdlog-dev libeigen3-dev liblemon-dev
+  sudo apt-get install -y libxml-libxml-perl libgd-perl
+  sudo apt-get install -y libsuitesparse-dev gfortran swig libspdlog-dev libeigen3-dev liblemon-dev
 
 
 On Ubuntu 24.04 build ``gperf`` from `this page <https://www.gnu.org/software/gperf>`_.
