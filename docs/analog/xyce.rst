@@ -108,7 +108,7 @@ The following steps of Xyce installation are similar to Trilinos
     cd 
     git clone https://github.com/Xyce/Xyce.git
     cd Xyce
-    git checkout Release-7-8-0
+    git checkout Release-7.8.0
     ./bootstrap
     cd 
     mkdir xyce_build
