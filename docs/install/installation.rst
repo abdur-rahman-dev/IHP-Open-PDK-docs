@@ -20,6 +20,11 @@ In order to get the PDK you should clone it from github using the following comm
  
   cd your_directory
   git clone --recursive https://github.com/IHP-GmbH/IHP-Open-PDK.git
+  git checkout dev
+
+.. note::
+   ``dev`` branch is required because the next exemple like ngspice didnt work on the main branch
+   some model have changed, and are not compatible with the example provided on this documentation.
 
 .. note::
     ``--recursive`` option is needed to populate recursively submodules that are included in our PDK repository. 

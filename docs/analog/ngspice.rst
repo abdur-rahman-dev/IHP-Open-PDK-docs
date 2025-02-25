@@ -14,6 +14,7 @@ In order to install ngspice the recomended method is the following:
     
     git clone https://git.code.sf.net/p/ngspice/ngspice ngspice-ngspice
     cd ngspice-ngspice
+    ./autogen.sh
     ./configure --enable-osdi
     make
     sudo make install
