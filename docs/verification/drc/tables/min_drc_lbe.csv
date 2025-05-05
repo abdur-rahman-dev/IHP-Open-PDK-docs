@@ -1,0 +1,7 @@
+LBE.a,Min. LBE width
+LBE.b,Max. LBE width
+LBE.b1,Max. LBE area (µm²)
+LBE.c,Min. LBE space or notch
+LBE.d,Min. LBE space to inner edge of EdgeSeal
+LBE.h,No LBE ring allowed
+LBE.i,Max. global LBE density [%]

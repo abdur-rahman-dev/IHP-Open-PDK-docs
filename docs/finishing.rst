@@ -1,5 +1,5 @@
 Chip finishing 
-=============
+==============
 
 .. toctree::
     :caption: Chip Finishing

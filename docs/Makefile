@@ -38,7 +38,7 @@ BUILDDIR        = $(DOCS_DIR)/_build
 
 .DEFAULT_GOAL := docs
 
-docs: clean setup build display
+docs: clean setup preprocess build display
 
 #========================
 # ----- BUILD DOCS ------
@@ -51,6 +51,11 @@ clean:
 .ONESHELL:
 setup:
 	@pip install -r requirements.txt
+
+.ONESHELL:
+preprocess:
+	@echo "Counting min DRC rules..."
+	@python3 scripts/count_min_drc_rules.py
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
