@@ -197,5 +197,16 @@ Pin layer rules
     :class: drc-table
     :file: tables/min_drc_pin.csv
     
+Forbidden layers
+----------------
+
+.. csv-table::
+    :header: "Name", "Description"
+    :widths: 25, 75
+    :stub-columns: 0
+    :align: left
+    :class: drc-table
+    :file: tables/min_drc_forbidden.csv
+    
 .. include:: tables/_min_drc_rule_count.rst
 
