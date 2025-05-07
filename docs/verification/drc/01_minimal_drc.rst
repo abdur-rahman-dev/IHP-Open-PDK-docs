@@ -3,6 +3,9 @@
 Minimal (short) DRC rules
 =========================
 
+.. role:: red
+   :class: red-text
+
 .. tip::
 
     These are used for rejection tests during the pre-tapeout checks.
@@ -164,17 +167,6 @@ LBE
     :class: drc-table
     :file: tables/min_drc_lbe.csv
 
-Pad
---------------
-
-.. csv-table::
-    :header: "Name", "Description"
-    :widths: 20, 80
-    :stub-columns: 0
-    :align: left
-    :class: drc-table
-    :file: tables/min_drc_pad.csv
-    
 Sealring
 --------
 

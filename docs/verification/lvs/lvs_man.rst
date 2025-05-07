@@ -21,3 +21,4 @@ LVS Devices
     03_truth_table
     04_lvs_devices
     05_klayout_lvs
+    06_magic_lvs
