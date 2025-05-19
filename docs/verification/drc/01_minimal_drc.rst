@@ -167,6 +167,39 @@ LBE
     :class: drc-table
     :file: tables/min_drc_lbe.csv
 
+Pad Dimensions
+--------------
+
+.. csv-table::
+    :header: "Name", "Description"
+    :widths: 20, 80
+    :stub-columns: 0
+    :align: left
+    :class: drc-table
+    :file: tables/min_drc_pad.csv
+    
+Solder Bump Rules
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. csv-table::
+    :header: "Name", "Description"
+    :widths: 20, 80
+    :stub-columns: 0
+    :align: left
+    :class: drc-table
+    :file: tables/min_drc_sbump.csv
+    
+Copper Pillar Rules
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. csv-table::
+    :header: "Name", "Description"
+    :widths: 20, 80
+    :stub-columns: 0
+    :align: left
+    :class: drc-table
+    :file: tables/min_drc_cupillar.csv
+
 Sealring
 --------
 

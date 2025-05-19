@@ -1,1 +1,2 @@
-:red:`Seal.l`,**MISSING** - Not yet implemented in DRC deck
+:red:`Seal.l`,No structures outside sealring boundary allowed
+:red:`Seal.n`,Sealring must be enclosed by an unbroken Passiv ring

@@ -1,0 +1,4 @@
+:red:`Padc.a`,Min. CuPillarPad size
+:red:`Padc.b`,Min. CuPillarPad space
+:red:`Padc.c`,Min. TopMetal2 (within dfpad) enclosure of CuPillarPad
+:red:`Padc.f`,Allowed passivation opening shape
