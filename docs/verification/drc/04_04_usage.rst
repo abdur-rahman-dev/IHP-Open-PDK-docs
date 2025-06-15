@@ -13,46 +13,57 @@ The `run_drc.py` script takes your gds to run DRC rule decks with switches to se
 
 .. code-block:: bash
 
-    run_drc.py (--help| -h)
-    run_drc.py (--path=<file_path>) [--table=<table_name>]... [--mp=<num_cores>] [--run_dir=<run_dir_path>]
-    [--topcell=<topcell_name>] [--thr=<thr>] [--run_mode=<run_mode>] [--drc_json=<json_path>] [--no_feol]
-    [--no_beol] [--MaxRuleSet] [--no_connectivity] [--density] [--density_only] [--antenna] [--antenna_only]
-    [--no_offgrid] [--macro_gen]
+  run_drc.py (--help | -h)
+  run_drc.py --path=<file_path>
+          [--table=<table_name>]... [--mp=<num_cores>] [--run_dir=<run_dir_path>]
+          [--topcell=<topcell_name>] [--thr=<threads>] [--run_mode=<mode>] [--drc_json=<json_path>]
+          [--no_feol] [--no_beol] [--MaxRuleSet] [--no_connectivity] [--no_density]
+          [--density_only] [--antenna] [--antenna_only] [--no_offgrid] [--macro_gen]
 
 **Options:**
 
 .. code-block:: rst
 
-    - `--help -h`                           Displays this help message.
-    - `--path=<file_path>`                  Specifies the file path of the input GDS file.
-    - `--topcell=<topcell_name>`            Specifies the name of the top cell to be used.
-    - `--table=<table_name>`                Specifies the name of the table on which to execute the rule deck.
-    - `--mp=<num_cores> `                   Run the rule deck in parts in parallel to speed up the run. [default: 1]
-    - `--run_dir=<run_dir_path>`            un directory to save all the generated results [default: pwd]
-    - `--thr=<thr>`                         Specifies the number of threads to use during the run.
-    - `--run_mode=<run_mode>`               Selects the allowed KLayout mode, (flat , deep, tiling). [default: deep]
-    - `--drc_json=<json_path>`              Path to the JSON file that contains the DRC rules values to be used.
-    - `--no_feol`                           Disables FEOL rules from running.
-    - `--no_beol`                           Disables BEOL rules from running.
-    - `--MaxRuleSet`                        Runs DRC using the complete rule deck.
-    - `--no_connectivity`                   Disables connectivity rules.
-    - `--density`                           Enables Density rules.
-    - `--density_only`                      Runs Density rules only.
-    - `--antenna`                           Enables Antenna checks.
-    - `--antenna_only`                      Runs Antenna checks only.
-    - `--no_offgrid`                        Disables OFFGRID checking rules.
-    - `--macro_gen`                         Generating the full rule deck without run.
+    `-h, --help`            show this help message and exit
+    `--path PATH`           Path to the input GDS file to be processed.
+    `--table TABLE`         DRC table name(s) to execute (e.g., activ, metal1). This option can be used multiple times.
+    `--mp MP`               Number of parts to split the rule deck for parallel execution. [default: 1]
+    `--run_dir RUN_DIR`     Dir to store all run results. If not specified, a timestamped dir under the current path will be used.
+    `--topcell TOPCELL`     Top-level cell name to use from the input GDS.
+    `--thr THR`             Number of threads to use during the run.
+    `--run_mode {flat,deep}`
+                            KLayout execution mode: flat, deep, or tiling. [default: deep]
+    `--drc_json DRC_JSON`   Path to a JSON file that defines rule values to use.
+    `--no_feol`             Disable all FEOL-related DRC checks.
+    `--no_beol`             Disable all BEOL-related DRC checks.
+    `--MaxRuleSet`          Force execution of the full rule deck.
+    `--no_connectivity`     Skip connectivity-related rules.
+    `--no_density`          Disable density rule checks.
+    `--density_only`        Run only density rules.
+    `--antenna`             Enable antenna rule checks.
+    `--antenna_only`        Run only antenna rules.
+    `--no_offgrid`          Disable offgrid rule checks.
+    `--macro_gen`           Only generate the DRC rule deck without running.
 
 .. note::
 
-    * If the `--drc_json=<json_path>` option is not provided, the script will attempt to use the [SG13G2 tech JSON](https://github.com/IHP-GmbH/IHP-Open-PDK/tree/dev/ihp-sg13g2/libs.tech/klayout/python/sg13g2_pycell_lib/sg13g2_tech_mod.json) file. 
-    * If that file is missing, it will fall back to the [default tech DRC values](https://github.com/IHP-GmbH/IHP-Open-PDK/tree/dev/ihp-sg13g2/libs.tech/klayout/tech/drc/rule_decks/default_drc_rules.json) file.
+   By default, the **short rule set** will be executed, which includes **density rules**.  
+   To disable density checks, use the ``--no_density`` switch.
+
+.. tip::
+
+   If the ``--drc_json=<json_path>`` option is not provided, the script will follow this fallback order:
+
+   - 1. Try to load **the SG13G2 tech JSON**:  
+    `SG13G2 tech JSON <https://github.com/IHP-GmbH/IHP-Open-PDK/tree/dev/ihp-sg13g2/libs.tech/klayout/python/sg13g2_pycell_lib/sg13g2_tech_mod.json>`_ file.
+   - 2. Fall back to **default DRC values**:  
+    `default tech DRC values <https://github.com/IHP-GmbH/IHP-Open-PDK/tree/dev/ihp-sg13g2/libs.tech/klayout/tech/drc/rule_decks/default_drc_rules.json>`_ file.
 
 **Example:**
 
 .. code-block:: bash
 
-        python3 run_drc.py --path=testing/testcases/unit/activ.gds --run_mode=deep --run_dir=test_activ
+        python3 run_drc.py --path=testing/testcases/unit/activ.gds --run_mode=deep --run_dir=test_activ --no_density
 
 **DRC Outputs**
 
@@ -77,7 +88,7 @@ The outcome includes a database (`<your_design_name>.lyrdb`) containing DRC resu
 
 .. rst-class:: center
 
-    Figure 5.4.1 Marker Browser for Klayout-DRC
+    Figure 4.4.1 Marker Browser for Klayout-DRC
 
 After selecting Marker Browser option, you could load the database file and visualize the DRC results.
 
@@ -88,7 +99,7 @@ After selecting Marker Browser option, you could load the database file and visu
 
 .. rst-class:: center
 
-    Figure 5.4.2 Loading DRC database file - 1
+    Figure 4.4.2 Loading DRC database file - 1
 
 .. image:: images/drc_marker_3.png
     :width: 700
@@ -97,7 +108,7 @@ After selecting Marker Browser option, you could load the database file and visu
 
 .. rst-class:: center
 
-    Figure 5.4.3 Loading DRC database file - 2
+    Figure 4.4.3 Loading DRC database file - 2
 
 .. image:: images/drc_marker_4.png
     :width: 700
@@ -106,7 +117,7 @@ After selecting Marker Browser option, you could load the database file and visu
 
 .. rst-class:: center
 
-    Figure 5.4.4 Visualize DRC results
+    Figure 4.4.4 Visualize DRC results
 
 
 GUI
@@ -132,7 +143,7 @@ Then, you will get the DRC menus for SG13G2, you could set your desired options 
 
 .. rst-class:: center
 
-    Figure 5.4.5 Setting up DRC Options-GUI - 1
+    Figure 4.4.5 Setting up DRC Options-GUI - 1
 
 .. image:: images/drc_menus_2.png
     :width: 500
@@ -141,28 +152,37 @@ Then, you will get the DRC menus for SG13G2, you could set your desired options 
 
 .. rst-class:: center
 
-    Figure 5.4.6 Setting up DRC Options-GUI - 2
+    Figure 4.4.6 Setting up DRC Options-GUI - 2
+
+.. image:: images/drc_menus_3.png
+    :width: 500
+    :align: center
+    :alt: Setting up DRC Options-GUI - 3
+
+.. rst-class:: center
+
+    Figure 4.4.7 Setting up DRC Options-GUI - 3
 
 For additional details on GUI options, please refer to the :ref:`CLI Usage`.
 
 Finally, after setting your option, you could execute the DRC using `Run Klayout DRC` from the dropdown menu.
 
-.. image:: images/drc_menus_3.png
-    :width: 700
+.. image:: images/drc_menus_4.png
+    :width: 500
     :align: center
     :alt: Running DRC using Klayout menus
 
 .. rst-class:: center
 
-    Figure 5.4.7 Running DRC using Klayout menus
+    Figure 4.4.8 Running DRC using Klayout menus
 
 Upon executing the DRC, the result database will appear on your layout interface, allowing you to verify the outcome of the run.
 
-.. image:: images/drc_menus_3.png
-    :width: 700
+.. image:: images/drc_menus_5.png
+    :width: 500
     :align: center
     :alt: Running DRC using Klayout menus
 
 .. rst-class:: center
 
-    Figure 5.4.8 Running DRC using Klayout menus
+    Figure 4.4.9 Running DRC using Klayout menus
