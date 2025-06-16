@@ -37,7 +37,6 @@ To regenerate golden results based on the current rule implementation, use the f
     gen_golden.py (--help | -h)
     gen_golden.py [--table_name=<table_name>] [--run_dir=<dir>] [--mp=<num>] [--keep]
 
-
 Example:
 
 .. code-block:: bash
@@ -49,10 +48,12 @@ Example:
 
 .. code-block:: rst
 
-    --table_name=<table_name>   Specify the rule table name for which to generate golden results.
-    --run_dir=<dir>             Directory to store the output golden results.
-    --mp=<num>                  Number of CPU cores to utilize for parallel processing.
-    --keep                      Retain output logs and intermediate files after execution.
+    -h, --help            show this help message and exit
+    --table_name TABLE_NAME
+                        Target rule table name to generate golden results for.
+    --run_dir RUN_DIR     Directory to store output. If not specified, a timestamped folder will be created.
+    --mp MP               The number of cores used in the run. [default: 1]
+    --keep                Keep output logs and intermediate files after processing.
 
 
 Regression Testing
@@ -77,10 +78,11 @@ Example:
 
 .. code-block:: rst
 
-    --help -h                   Display this help message.
-    --run_dir=<run_dir>         Directory where the regression results will be stored.
-    --table_name=<table_name>   Specify the rule table to test.
-    --mp=<num>                  Number of threads to use during the run
+    -h, --help            show this help message and exit
+    --run_dir RUN_DIR     Run directory to save all the results. If not provided, a timestamped directory will be created.
+    --table_name TABLE_NAME
+                        Target specific rule table to run.
+    --mp MP               The number of parts to split the rule deck for parallel execution. [default: 1]
 
 DRC Regression Outputs
 ######################
@@ -109,3 +111,76 @@ You could find the regression run results at your run directory if you previousl
 
 The result is a database file (`<table_name>_main_markers_merged_final.lyrdb`) contains all violations. 
 You could view it on your file using: `klayout <table_name>_main_markers_merged.gds -m <table_name>_main_markers_merged_final.lyrdb`, or you could view it on your gds file via marker browser option in tools menu using klayout GUI.
+
+🧾 Output Regression Log
+########################
+
+After completing a DRC regression run, a summary log is generated that provides detailed insights into the comparison between the golden reference and the actual DRC results from the tested rule deck.
+
+📋 Sample Regression Output
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   15-Jun-2025 10:31:37 | INFO    | # Final analysis table:
+     table_name rule_name  viol_not_golden  golden_not_viol  in_tests  in_rule_deck run_status rule_status
+   0      activ     Act.a                0                0         1             1  completed      Passed
+   1      activ     Act.b                0                0         1             1  completed      Passed
+
+   15-Jun-2025 10:31:37 | INFO    | # Failing test cases:
+   Empty DataFrame
+   Columns: [table_name, rule_name, viol_not_golden, golden_not_viol, in_tests, in_rule_deck, run_status, rule_status]
+   Index: []
+
+   15-Jun-2025 10:31:37 | INFO    | # All testcases passed.
+   15-Jun-2025 10:31:37 | INFO    | Test completed successfully.
+   15-Jun-2025 10:31:37 | INFO    | Total DRC Regression Run time: 8.26 seconds
+
+📊 Explanation of Result Columns
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++---------------------+---------------------------------------------------------------------------------------------------------------------------+
+| Column Name         | Description                                                                                                               |
++=====================+===========================================================================================================================+
+| ``table_name``      | The name of the rule group or category (e.g., activ, gatepoly, metal1, etc.).                                            |
++---------------------+---------------------------------------------------------------------------------------------------------------------------+
+| ``rule_name``       | The specific name of the DRC rule being tested, as defined in the design rule manual.                                   |
++---------------------+---------------------------------------------------------------------------------------------------------------------------+
+| ``viol_not_golden`` | Count of violations found in the actual test result but not present in the golden reference (false positives).           |
++---------------------+---------------------------------------------------------------------------------------------------------------------------+
+| ``golden_not_viol`` | Count of violations found in the golden reference but missing from the actual result (false negatives).                  |
++---------------------+---------------------------------------------------------------------------------------------------------------------------+
+| ``in_tests``        | Indicates whether the rule exists in the unit test files (1 = present, 0 = missing).                                     |
++---------------------+---------------------------------------------------------------------------------------------------------------------------+
+| ``in_rule_deck``    | Indicates whether the rule is implemented in the current rule deck (1 = present, 0 = missing).                           |
++---------------------+---------------------------------------------------------------------------------------------------------------------------+
+| ``run_status``      | Status of the individual test run (``completed``, ``not run``, or other diagnostic states).                              |
++---------------------+---------------------------------------------------------------------------------------------------------------------------+
+| ``rule_status``     | Final regression result for this rule (``Passed`` if matched expected results, otherwise ``Failed``).                    |
++---------------------+---------------------------------------------------------------------------------------------------------------------------+
+
+✅ Summary Insights
+~~~~~~~~~~~~~~~~~~~
+
+A successful DRC regression run typically shows:
+
+- **No mismatches** between the test and golden results:
+  
+  - ``viol_not_golden = 0`` for all rules (no unexpected violations).
+  - ``golden_not_viol = 0`` for all rules (no missing expected violations).
+
+- **All rules pass**:  
+  Every ``rule_status`` should be ``Passed``.
+
+- **No failing test cases**:  
+  The *Failing test cases* section should be empty.
+
+If mismatches are detected:
+
+- **False positives** occur when a rule violates in the test but not in the golden reference (``viol_not_golden > 0``).
+- **False negatives** occur when a rule is violated in the golden but missing in the test result (``golden_not_viol > 0``).
+
+The regression also validates:
+
+- **Test coverage**: Ensures each rule exists in the unit tests (``in_tests = 1``).
+- **Rule deck integrity**: Confirms the rule is present in the rule deck (``in_rule_deck = 1``).
