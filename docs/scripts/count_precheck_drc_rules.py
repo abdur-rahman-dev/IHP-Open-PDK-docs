@@ -7,7 +7,7 @@ script_dir = Path(__file__).parent.resolve()
 csv_dir = (script_dir / "../verification/drc/tables").resolve()
 
 # Match all relevant CSV files
-csv_files = list(csv_dir.glob("min_drc_*.csv"))
+csv_files = list(csv_dir.glob("precheck_drc_*.csv"))
 
 total = 0
 for path in csv_files:
@@ -17,6 +17,6 @@ for path in csv_files:
         total += count
 
 # Output snippet to be included in the RST
-output_path = csv_dir / "_min_drc_rule_count.rst"
+output_path = csv_dir / "_precheck_drc_rule_count.rst"
 with output_path.open("w", encoding="utf-8") as out:
     out.write(f"Total: **{total}**\n")

@@ -16,8 +16,8 @@ DRC Rules
     :numbered:
     :caption: Contents
 
-    01_minimal_drc
-    02_maximal_drc
-    03_missing_rules
+    01_precheck_drc
+    02_main_rules
+    03_extra_drc
     04_klayout_drc
     05_magic_drc
