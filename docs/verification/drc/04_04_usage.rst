@@ -17,7 +17,7 @@ The `run_drc.py` script takes your gds to run DRC rule decks with switches to se
   run_drc.py --path=<file_path>
           [--table=<table_name>]... [--mp=<num_cores>] [--run_dir=<run_dir_path>]
           [--topcell=<topcell_name>] [--run_mode=<mode>] [--drc_json=<json_path>]
-          [--precheck_drc] [--extra_rules] [--no_feol] [--no_beol] [--no_density]
+          [--disable_extra_rules] [--no_feol] [--no_beol] [--no_density]
           [--density_thr=<density_threads>] [--density_only] [--antenna]
           [--antenna_only] [--no_offgrid] [--macro_gen]
 
@@ -36,10 +36,9 @@ The `run_drc.py` script takes your gds to run DRC rule decks with switches to se
     `--run_mode {deep,flat}`
                             KLayout execution mode: deep, or flat. [default: deep]
     `--drc_json DRC_JSON`   Path to a JSON file that defines rule values to use.
-    `--precheck_drc`        Run a minimal set of DRC checks typically required for foundry prechecks.
     `--no_feol`             Disable all FEOL-related DRC checks.
     `--no_beol`             Disable all BEOL-related DRC checks.
-    `--extra_rules`         Run the remaining DRC rules from the full rule set (may be slower).
+    `--disable_extra_rules` Distable the remaining DRC rules from the full rule set (may be slower).
     `--no_density`          Disable density rule checks.
     `--density_only`        Run only density rules.
     `--antenna`             Enable antenna rule checks.
@@ -49,7 +48,6 @@ The `run_drc.py` script takes your gds to run DRC rule decks with switches to se
 
 .. note::
    
-   To enable the **foundry precheck rule set**, use the ``--precheck_drc`` switch.
    By default, the **main DRC rule set** will be executed, which includes **density rules**.  
    To disable density checks, use the ``--no_density`` switch.
 
