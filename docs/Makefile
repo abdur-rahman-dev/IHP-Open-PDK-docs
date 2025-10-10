@@ -54,8 +54,8 @@ setup:
 
 .ONESHELL:
 preprocess:
-	@echo "Counting min DRC rules..."
-	@python3 scripts/count_min_drc_rules.py
+	@echo "Counting precheck DRC rules..."
+	@python3 scripts/count_precheck_drc_rules.py
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).

@@ -16,9 +16,10 @@ The `run_drc.py` script takes your gds to run DRC rule decks with switches to se
   run_drc.py (--help | -h)
   run_drc.py --path=<file_path>
           [--table=<table_name>]... [--mp=<num_cores>] [--run_dir=<run_dir_path>]
-          [--topcell=<topcell_name>] [--thr=<threads>] [--run_mode=<mode>] [--drc_json=<json_path>]
-          [--no_feol] [--no_beol] [--MaxRuleSet] [--no_connectivity] [--no_density]
-          [--density_only] [--antenna] [--antenna_only] [--no_offgrid] [--macro_gen]
+          [--topcell=<topcell_name>] [--run_mode=<mode>] [--drc_json=<json_path>]
+          [--disable_extra_rules] [--no_feol] [--no_beol] [--no_density]
+          [--density_thr=<density_threads>] [--density_only] [--antenna]
+          [--antenna_only] [--no_offgrid] [--macro_gen]
 
 **Options:**
 
@@ -30,14 +31,14 @@ The `run_drc.py` script takes your gds to run DRC rule decks with switches to se
     `--mp MP`               Number of parts to split the rule deck for parallel execution. [default: 1]
     `--run_dir RUN_DIR`     Dir to store all run results. If not specified, a timestamped dir under the current path will be used.
     `--topcell TOPCELL`     Top-level cell name to use from the input GDS.
-    `--thr THR`             Number of threads to use during the run.
-    `--run_mode {flat,deep}`
-                            KLayout execution mode: flat, deep, or tiling. [default: deep]
+    `--density_thr DENSITY_THR`
+                            Number of threads to use during the density run (default: number of CPU cores).
+    `--run_mode {deep,flat}`
+                            KLayout execution mode: deep, or flat. [default: deep]
     `--drc_json DRC_JSON`   Path to a JSON file that defines rule values to use.
     `--no_feol`             Disable all FEOL-related DRC checks.
     `--no_beol`             Disable all BEOL-related DRC checks.
-    `--MaxRuleSet`          Force execution of the full rule deck.
-    `--no_connectivity`     Skip connectivity-related rules.
+    `--disable_extra_rules` Distable the remaining DRC rules from the full rule set (may be slower).
     `--no_density`          Disable density rule checks.
     `--density_only`        Run only density rules.
     `--antenna`             Enable antenna rule checks.
@@ -46,18 +47,18 @@ The `run_drc.py` script takes your gds to run DRC rule decks with switches to se
     `--macro_gen`           Only generate the DRC rule deck without running.
 
 .. note::
-
-   By default, the **short rule set** will be executed, which includes **density rules**.  
+   
+   By default, the **main DRC rule set** will be executed, which includes **density rules**.  
    To disable density checks, use the ``--no_density`` switch.
 
 .. tip::
 
-   If the ``--drc_json=<json_path>`` option is not provided, the script will follow this fallback order:
+   If the ``--drc_json=<json_path>`` option is not provided, the script will get rule values as following:
 
-   - 1. Try to load **the SG13G2 tech JSON**:  
-    `SG13G2 tech JSON <https://github.com/IHP-GmbH/IHP-Open-PDK/tree/dev/ihp-sg13g2/libs.tech/klayout/python/sg13g2_pycell_lib/sg13g2_tech_mod.json>`_ file.
+   - 1. Attempt to load the **SG13G2 technology JSON file**:  
+     `SG13G2 tech JSON <https://github.com/IHP-GmbH/IHP-Open-PDK/tree/dev/ihp-sg13g2/libs.tech/klayout/python/sg13g2_pycell_lib/sg13g2_tech_mod.json>`_ file.
    - 2. Fall back to **default DRC values**:  
-    `default tech DRC values <https://github.com/IHP-GmbH/IHP-Open-PDK/tree/dev/ihp-sg13g2/libs.tech/klayout/tech/drc/rule_decks/default_drc_rules.json>`_ file.
+     `default tech DRC values <https://github.com/IHP-GmbH/IHP-Open-PDK/tree/dev/ihp-sg13g2/libs.tech/klayout/tech/drc/rule_decks/default_drc_rules.json>`_ file.
 
 **Example:**
 
@@ -88,7 +89,7 @@ The outcome includes a database (`<your_design_name>.lyrdb`) containing DRC resu
 
 .. rst-class:: center
 
-    Figure 4.4.1 Marker Browser for Klayout-DRC
+    Figure 4.4.1 Marker Browser for Klayout-DRC -1
 
 After selecting Marker Browser option, you could load the database file and visualize the DRC results.
 

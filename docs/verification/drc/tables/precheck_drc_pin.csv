@@ -1,0 +1,9 @@
+Pin.a,Min. Activ enclosure of Activ:pin,0
+Pin.b,Min. GatPoly enclosure of GatPoly:pin,0
+Pin.e,Min. Metal1 enclosure of Metal1:pin,0
+Pin.f.M2,Min. Metal2 enclosure of Metal2:pin,0
+Pin.f.M3,Min. Metal3 enclosure of Metal3:pin,0
+Pin.f.M4,Min. Metal4 enclosure of Metal4:pin,0
+Pin.f.M5,Min. Metal5 enclosure of Metal5:pin,0
+Pin.g,Min. TopMetal1 enclosure of TopMetal1:pin,0
+Pin.h,Min. TopMetal2 enclosure of TopMetal2:pin,0
