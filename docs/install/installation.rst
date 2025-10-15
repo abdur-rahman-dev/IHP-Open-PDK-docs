@@ -14,21 +14,20 @@ Cloning
 -------
 Unlikely the existing manufacturable PDK's, namely SKY130 and GF180, our IHP-Open-PDK does not require installation. 
 It delivers ready to use primitives and tool configuration files in order to minimize the configuration effort. 
-In order to get the PDK you should clone it from github using the following command:
+In order to get the PDK you should clone it from GitHub using the following command:
 
 .. code-block:: bash
  
-  cd your_directory
-  git clone --recursive https://github.com/IHP-GmbH/IHP-Open-PDK.git
+  cd <your_directory>
+  git clone --branch dev --recurse-submodules https://github.com/IHP-GmbH/IHP-Open-PDK.git
   cd IHP-Open-PDK
-  git checkout dev
 
 .. note::
    ``dev`` branch is required because the ngspice example didn't work on the ``main`` branch since
    some models have changed, and are not compatible with the example provided in this documentation.
 
 .. note::
-    ``--recursive`` option is needed to populate recursively submodules that are included in our PDK repository. 
+    ``--recurse-submodules`` option is required to populate recursively submodules that are included in our PDK repository. 
   
 .. tip::
     The PDK has two branches ``main`` and ``dev``. The general rule is that the ``dev`` branch is ahead of ``main`` and contains the recent changes. 
