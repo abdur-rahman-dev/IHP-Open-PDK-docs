@@ -6,4 +6,5 @@ Digital Design
     :name: digital
 
     With OpenROAD <digital/openroad>
-    With OpenLane <digital/openlane>
+    With LibreLane <digital/librelane>
+    Full Chip Design With Librelane <digital/librelane_full_chip>

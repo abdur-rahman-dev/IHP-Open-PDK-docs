@@ -8,3 +8,4 @@ sphinxcontrib-wavedrom
 sphinxcontrib-svg2pdfconverter
 sphinx-material
 sphinxcontrib-bibtex
+myst-parser
