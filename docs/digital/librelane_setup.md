@@ -45,7 +45,7 @@ Nix installation provides the most reliable and reproducible setup. See the full
    nix run github:librelane/librelane/dev -- --help
    ```
 
-This will download and cache all necessary tools. The first run may take a few minutes.
+This will download and cache all necessary tools. **The first run may take 30-60 minutes** as Nix downloads and builds the entire EDA toolchain (OpenROAD, Yosys, Magic, KLayout, Verilator, and dependencies). Subsequent runs will use the cached environment and start instantly.
 
 ### Method 2: Alternative Installation Methods
 
