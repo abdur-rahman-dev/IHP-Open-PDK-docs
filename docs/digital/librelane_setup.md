@@ -36,14 +36,15 @@ On first run, LibreLane will download the IHP SG13G2 PDK automatically (may take
 
 ### Manual PDK Installation (Optional)
 
-For offline use, development, or testing with the latest PDK version:
+For offline use, development, or testing with the latest PDK version, see the [IHP PDK installation guide](https://ihp-open-pdk-docs.readthedocs.io/en/latest/install/installation.html).
 
 **Clone the PDK:**
 ```bash
-git clone https://github.com/IHP-GmbH/IHP-Open-PDK.git
+git clone --branch dev --recurse-submodules https://github.com/IHP-GmbH/IHP-Open-PDK.git
 cd IHP-Open-PDK
-git checkout dev  # or specific commit
 ```
+
+**Note:** The `--recurse-submodules` option is required to populate submodules included in the PDK repository. The `dev` branch contains the latest changes and is ahead of `main`.
 
 **Use with LibreLane:**
 ```bash
