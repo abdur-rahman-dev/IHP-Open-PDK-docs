@@ -58,7 +58,7 @@ On Ubuntu, simply
 
 .. code:: bash
 
-  apt install -y build-essential virtualenv python3
+   apt install -y build-essential git python3
 
 Building the documentation
 ==========================
@@ -72,7 +72,7 @@ To build documentation locally, you could use the following commands:
    cd docs/
 
    # Create a Python virtual environment and install requirements into it.
-   virtualenv docs_env --python=python3
+   python3 -m venv docs_env
    . docs_env/bin/activate
 
    # Build the documentation
