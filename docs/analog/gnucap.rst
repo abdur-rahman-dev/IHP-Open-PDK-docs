@@ -12,7 +12,6 @@ VerilogAMS. It is hosted at several mirrors but the most up to dater is the one 
 and the adoption in open source EDA tools is limited. However, gnucap is a powerful
 tool especially for mixed signal simulation.
 
-   
 
 Gnucap and gnucap-modelgen-verilog installation on ubuntu 22.04 LTS 
 ====================================================================
@@ -24,7 +23,7 @@ Due to gnucap's modular architecture the installation process consists of two ba
 
 
 The gnucap installation is straightforward. 
-The source code can be obtained from `codeberg <https://codeberg.org/gnucap/gnucap>`_.
+The source code can be obtained from `this repository <https://codeberg.org/gnucap/gnucap>`_.
 In order to install gnucap the following commands should be executed:
 
 .. code-block:: bash
@@ -32,6 +31,19 @@ In order to install gnucap the following commands should be executed:
     cd 
     git clone https://codeberg.org/gnucap/gnucap.git gnucap
     cd gnucap
+    ./configure 
+    make
+    sudo make install
+
+The same method applies to the gnucap-modelgen-verilog tool, 
+which can be obtained from `this website <https://codeberg.org/gnucap/gnucap-modelgen-verilog>`_.
+It is used to compile Verilog-AMS models to be included in gnucap simulation engine. 
+
+.. code-block:: bash
+    
+    cd 
+    git clone https://codeberg.org/gnucap/gnucap-modelgen-verilog.git gnucap-modelgen-verilog
+    cd gnucap-modelgen-verilog
     ./configure 
     make
     sudo make install
@@ -202,37 +214,39 @@ After compilation the model was included in the following framework of the simul
 
 .. code-block:: verilog
 
-
-    // Verilog
-    verilog
     load mgsim
     load ./gates.so
     load vams/vpulse.so
+    load ../../plugins/psp103_nqs.so
+    load ../../plugins/cornerMOSlv_tt.so
+    load ../../plugins/capacitor.so
+    // options log
+    verilog
+    ground gnd;  
+    anand xnand(nand, i1, i2);
+    dff1 xdff(q, qb ,clk, nand);
 
-    module testnand(i1, i2, nand, clk, q);
+    sg13_lv_nmos #(.w(1.0e-6), .l(0.13e-6), .ng(1)) XM1(xout, nand, vss, vss);
+    sg13_lv_pmos #(.w(1.0e-6), .l(0.13e-6), .ng(1)) XM2(xout, nand, vdd, vdd);
+    sp_capacitor #(.capacitance(1e-14)) C1(xout, gnd);
+    sp_capacitor #(.capacitance(1e-14)) C2(q, gnd);
+    sp_capacitor #(.capacitance(1e-14)) C3(qb, gnd);
 
-        ground gnd;
-        anand  xnand(nand, i1, i2);
-        dff1  xdff(q, qb ,clk, nand);
-        vpulse #(.val0(0) .val1(1.2) .width(5.0u) .period(10.0u)) v1(i1, gnd );
-        vpulse #(.val0(0) .val1(1.2) .width(3.0u) .period(10.0u)) v2(i2, gnd );
-        vpulse #(.val0(0) .val1(1.2) .td(0.2u) .width(0.5u) .period(1.0u)) v3(clk, gnd );
+    spice
+    Vdd1 vdd gnd 1.2
+    Vss1 vss gnd 0.0
+    V1 i1 gnd pulse(0, 1.2, 0, 1n, 1n, 5u, 10u)
+    V2 i2 gnd pulse(0, 1.2, 0, 1n, 1n, 3u, 10u)
+    Vclk clk gnd pulse(0, 1.2, 200n, 1n, 1n, 500n, 1u)
 
-    endmodule
-
-    testnand #() t(in1, in2, out, clk, q);
-
-    // print to screen
-    print tran  v(nodes) l(nodes) 
-    // use for measurements
-    store tran  v(*) 
-    tran 0 10u 100n > tran.txt
-    // measure 
-    measure Vin1 = at(probe="v(in1)", at=5u) >> file
-    measure Vin2 = at(probe="v(in2)", at=5u) >> file
-    measure VoutHI = at(probe="v(out)", at=5u) >> file
-
+    .print tran   v(i1) v(i2) v(nand) v(xout) v(clk) v(q)
+    .tran  10u  > tran.txt trace off quiet
+    .status 
+ 
 Gnucap will redirect the transient simulation output into ``tran.txt`` file. 
+
+
+
 The additional measurements are stored added to a file ``file``, which
 stores the voltages at specific time instants.
 
@@ -267,8 +281,8 @@ The associated gnuplot script to plot the transient response is shown below:
     set ylabel "V(nand) (V)"
     plot "tran.txt" using 1:4 with lines ls 2 title "NAND output V(nand)"
 
-    set ylabel "V(and) (V)"
-    plot "tran.txt" using 1:5 with lines ls 2 title "Inverted NAND V(xand)"
+    set ylabel "V(xout) (V)"
+    plot "tran.txt" using 1:5 with lines ls 2 title "Inverted NAND V(xout)"
 
     set ylabel "V(clk) (V)"
     plot "tran.txt" using 1:6 with lines ls 3 title "Clock signal V(clk)"
@@ -306,7 +320,7 @@ References
 You can find some more resources here:
 
 #. Official documentation Gnucap_
-#. Source code + test suites Codeberg_
+#. Source code + test suites CodebergSite_
 #. FOSDEM 2018 Gnucap talk Fosdem2018_
 #. FOSDEM 2017 Gnucap talk Fosdem2017_
 #. IGER 2023 Gnucap talk IGER2023_
@@ -314,7 +328,7 @@ You can find some more resources here:
 #. The gnucap model compiler IEEE2022_
 
 .. _Gnucap: http://gnucap.org
-.. _Codeberg: https://codeberg.org/gnucap/
+.. _CodebergSite: https://codeberg.org/gnucap/
 .. _Fosdem2018: https://www.youtube.com/watch?v=5a1N_Dm1muc
 .. _Fosdem2017: https://www.youtube.com/watch?v=zyeMORbswKk
 .. _IGER2023: https://www.youtube.com/watch?v=nacG9UwvoLw
