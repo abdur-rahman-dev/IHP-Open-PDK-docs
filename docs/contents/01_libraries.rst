@@ -26,7 +26,7 @@ All sections are **lower case** and separated by an **underscore**. The sections
 
 - The `Library Name` is an optional short abbreviated name used when there are multiple libraries of a given type released from a single `library source`. If only one library of a given type is going to ever be released, this can be left out.
 
-Each library type is organized using similar directory sturcture shown below:
+Each library type is organized using similar directory structure shown below:
 
 
 .. code-block:: bash
@@ -72,4 +72,3 @@ Third party developers are encourage to create new and interesting libraries for
 
  - It is released under an Apache 2.0 approved license.
  - TODO: Finish the criteria.
-

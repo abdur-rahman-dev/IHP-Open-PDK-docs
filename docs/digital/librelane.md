@@ -47,7 +47,7 @@ CLOCK_PERIOD: 10 # 10ns = 100MHz
 ```
 
 This is the LibreLane configuration which tells LibreLane where to find the source files and how to configure the flow.
-The `DESIGN_NAME` is the top-level module of your design, in this case `counter`. `VERILOG_FILES` specifices all source files for your design. This can be a list of files, or even a wildcard such as `dir::path/to/my/files/*.sv`.
+The `DESIGN_NAME` is the top-level module of your design, in this case `counter`. `VERILOG_FILES` specifies all source files for your design. This can be a list of files, or even a wildcard such as `dir::path/to/my/files/*.sv`.
 `CLOCK_PORT` is the, well, clock port of your design and `CLOCK_PERIOD` specifies at which clock period the design should operate at. LibreLane will use this information to run CTS (Clock Tree Synthesis) and set up the default SDC (Synopsys Design Constraint) file. For larger designs it could happen that the 100MHz are not achievable and LibreLane will report an error.
 
 ## Running the Flow
@@ -103,7 +103,7 @@ To open OpenROAD GUI, simply run the same command again with some additional arg
 librelane --pdk ihp-sg13g2 config.yaml --last-run --flow OpenInOpenROAD 
 ```
 
-`--last-run` tells LibreLane to re-use the last run folder with the latest state (we will talk about the run folder shortly). And `--flow OpenInOpenROAD` tells LibreLane to use the `OpenInOpenROAD` flow instead of the `Classic` flow for implementing designs.
+`--last-run` tells LibreLane to reuse the last run folder with the latest state (we will talk about the run folder shortly). And `--flow OpenInOpenROAD` tells LibreLane to use the `OpenInOpenROAD` flow instead of the `Classic` flow for implementing designs.
 
 ![The design in OpenROAD GUI](images/openroad_gui_1.png)
 
@@ -168,7 +168,7 @@ For debugging purposes, it is very useful to have a look at the directory of the
 
 And that was it for this example.
 
-You have succesfully implemented a counter using LibreLane! However, this is just the beginning. There are many advanced topics that are not covered by this tutorial, for example:
+You have successfully implemented a counter using LibreLane! However, this is just the beginning. There are many advanced topics that are not covered by this tutorial, for example:
 
 - Customize your design with configuration variables
 - Controlling the flow (run to a step, start from a step, skip steps)
