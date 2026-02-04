@@ -8,8 +8,8 @@ Introduction to Gnucap
 
 Gnucap circuit simulator is an open-source modern circuit simulator with support for
 VerilogAMS. It is hosted at several mirrors but the most up to dater is the one on 
-`codeberg <https://codeberg.org/gnucap/gnucap>`_. The documantation is fragmented 
-and the adopition in open source EDA tools is limited. However, gnucap is a powerful
+`codeberg <https://codeberg.org/gnucap/gnucap>`_. The documentation is fragmented 
+and the adoption in open source EDA tools is limited. However, gnucap is a powerful
 tool especially for mixed signal simulation.
 
    
@@ -23,7 +23,7 @@ Due to gnucap's modular architecture the installation process consists of two ba
 #. installation of gnucap-modelgen-verilog - Verilog-AMS model generator/compiler
 
 
-The gnucap installation is straighforward. 
+The gnucap installation is straightforward. 
 The source code can be obtained from `codeberg <https://codeberg.org/gnucap/gnucap>`_.
 In order to install gnucap the following commands should be executed:
 
@@ -39,11 +39,11 @@ In order to install gnucap the following commands should be executed:
 Gnucap basic example
 ==========================
 
-There are not many bacis/medium level examples in the public space on how to simulate 
+There are not many basic/medium level examples in the public space on how to simulate 
 circuits with gnucap. Nevertheless both repositories contain not only sources but also an
 extensive test suites, where many examples can be found. 
 
-This docuntment presents a basic examples of usage of gnucap using IHP SG13G2 PDK devices.
+This document presents a basic examples of usage of gnucap using IHP SG13G2 PDK devices.
 
 .. note::
 
@@ -76,7 +76,7 @@ This docuntment presents a basic examples of usage of gnucap using IHP SG13G2 PD
 
 Gnucap uses C/C++ style comments (//) for verilog mode and spice style comments (// and \*) for spice mode.
 The ``verilog`` keyword switches gnucap to verilog-ams mode, while the ``spice`` keyword switches gnucap to spice mode.
-The ``load`` command is used to load the required plugins for the simulation. In perticular the ```vams/vpulse.so``` plugin is 
+The ``load`` command is used to load the required plugins for the simulation. In particular the ```vams/vpulse.so``` plugin is 
 required for pulse sources and it was generated form a Verilog-AMS description using the gnucap-modelgen-verilog tool.
 The psp103_nqs.so and cornerMOSlv_tt.so plugins are required for IHP SG13G2 PDK devices and are generated using the PDK libraries and 
 gnucap-modelgen-verilog tool as well. The ``options log`` command enables logging of the simulation progress.
@@ -139,7 +139,7 @@ This step can be executed using the following one-liner command:
         
     gnucap-mg-vams --cc model.vams   | g++ -xc++ `gnucap-conf --cppflags` -fPIC -shared - -o model.so
 
-In this example the Verilog-AMS model is contained in the ``model.vams`` file and the output shared object file is ``model.so`` and cand 
+In this example the Verilog-AMS model is contained in the ``model.vams`` file and the output shared object file is ``model.so`` and can 
 be loaded in gnucap using the ``load`` command as shown in the previous example.
 
 The following code shows a basic Verilog-A models of a 2 input NAND gate and a D-type flip-flop.
@@ -287,14 +287,14 @@ The SVG output of the plot is shown below:
     :alt: Gnucap transient analysis of gates
 
 As shown on the plot the NAND gate output follows the expected truth table and the flip-flop captures the NAND gate output at the rising edge of the clock signal.
-Addtionally the inverted made out of primitive low voltage complementary devices inverts the input signal correctly. The inverter output contains 
+Additionally the inverted made out of primitive low voltage complementary devices inverts the input signal correctly. The inverter output contains 
 some artefacts characteristic for analog simulation, which are not present at other nodes due to the applied model. 
 
-.. note:: Coclusions
+.. note:: Conclusions
 
   The presented circuit mixes different levels of Verilog-A modelling styles. The NAND gate is modelled using 
-  behavioral approach neglecting underlaing device level of hierarchy as well as the flip-flop. 
-  In the testbench the testand module was defiened instantiating the NAND gate, the flip-flop and associated voltage 
+  behavioral approach neglecting underlying device level of hierarchy as well as the flip-flop. 
+  In the testbench the testand module was defined instantiating the NAND gate, the flip-flop and associated voltage 
   sources for generating stimuli. 
   The transient analysis was defined using the ``tran`` command and the results were stored in a file named ``tran.txt``.
   This approach is suitable for fast digital simulations, where the focus is on the logic functionality. 
@@ -320,5 +320,4 @@ You can find some more resources here:
 .. _IGER2023: https://www.youtube.com/watch?v=nacG9UwvoLw
 .. _IEEE2023: https://ieeexplore.ieee.org/document/1225766
 .. _IEEE2022: https://ieeexplore.ieee.org/abstract/document/1291068/
-
 

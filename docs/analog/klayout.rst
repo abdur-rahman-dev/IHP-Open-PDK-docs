@@ -2,13 +2,12 @@ Analog Design using Klayout tool
 ================================
 
 
-Klayout can be easily installed using debian package manager ``dpkg`` using the following scheme (please choose the OS and the version acc
-ording to your requirements). For the exact location refer to the official `Klayout website <https://www.klayout.de>`_.
+Klayout can be easily installed using debian package manager ``dpkg`` using the following scheme (please choose the OS and the version according to your requirements). For the exact location refer to the official `Klayout website <https://www.klayout.de>`_.
 
 .. code-block:: bash
   
   wget  https://www.klayout.org/downloads/Ubuntu-24/klayout_version.deb
-  sudo dpkg - klayout_version.deb
+  sudo dpkg -i klayout_version.deb
 
 The basic configuration of Klayout includes setting the environmental variables in your ``/home/$USER/.bashrc`` file as follows:
 

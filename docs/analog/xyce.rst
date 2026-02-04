@@ -6,8 +6,8 @@ Simulation using Xyce
 XYCE installation on ubuntu 22.04 LTS 
 ======================================
 
-Xyce installation is demanding due to the specific version isssues and multiple dependencies.
-Apart the bulid requirements listed in the `building guide <https://xyce.sandia.gov/documentation-tutorials/building-guide/>`_ the key parts for insallation are:
+Xyce installation is demanding due to the specific version issues and multiple dependencies.
+Apart the build requirements listed in the `building guide <https://xyce.sandia.gov/documentation-tutorials/building-guide/>`_ the key parts for installation are:
 
 #. installation of trilinos 
 #. installation of ADMS
@@ -94,8 +94,8 @@ The installation process consists of the following commands:
 ADMS installation
 -----------------
 
-After successfull installation one can procees installing ADMS. The installation process 
-is strightforward and well described on the `ASMS github repository <https://github.com/Qucs/ADMS>`_.
+After successful installation one can proceed with installing ADMS. The installation process 
+is straightforward and well described on the `ADMS GitHub repository <https://github.com/Qucs/ADMS>`_.
 Use ``cmake`` based build
 
 XYCE installation
@@ -220,4 +220,3 @@ The netlist was generated using `xschem` configured to use `Xyce` as a simulator
     :width: 800
     :align: center
     :alt: Xyce DC sweep of resistors
-

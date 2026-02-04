@@ -14,7 +14,7 @@ Since 2025 we use a dedicated branch, hosted
 `on qucs repository  <https://github.com/ra3xdh/qucs_s/tree/dev/xml_devices>`_ to 
 integrate and maintain Qucs-S with IHP PDKs. This branch introduces support for 
 devices and schematic objects defined using XML schema. It supports geometrical
-primitives and allows to use diffeerent parameters and netlisting options.
+primitives and allows to use different parameters and netlisting options.
 More details about Qucs-S XML devices can be found 
 `here <https://github.com/ra3xdh/qucs_s/tree/dev/xml_devices/qucs/components/xml/README.md>`_.
 
@@ -40,7 +40,7 @@ can be used to create symbols are the following:
     Add rectangle and arrow from linux laptop
 
 The majority of the geometry primitives are conditional, what means that it can be shown 
-or hidden depending on the perticular condition defined in the XML file. This feature allows
+or hidden depending on the particular condition defined in the XML file. This feature allows
 to create a single symbol for different device types, e.g. nmos, pmos, etc. where the majority 
 of the shapes are shared.
 
@@ -91,7 +91,7 @@ The parameters can be defined by the user using the ``<Parameters>`` block as sh
         </Parameter>
     </Parameters>
 
-Also the multiple values can be defined for a single parameter using the ``<Decription>`` block as shown below: 
+Also the multiple values can be defined for a single parameter using the ``<Description>`` block as shown below: 
 
 .. code-block:: xml
 
@@ -131,7 +131,7 @@ The equations are implemented using `muparser <https://beltoforion.de/en/muparse
 functions and operators.
 
 
-Netlisting can be custimozed using the ``<Netlist>`` block as shown below:
+Netlisting can be customized using the ``<Netlist>`` block as shown below:
 
 
 .. code-block:: xml
@@ -156,6 +156,3 @@ Use the Strong ARM latch example here
     :align: center
     :alt: IHP Analog/RF flow proposal.
     :width: 600
-
-
-
