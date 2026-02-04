@@ -39,7 +39,6 @@ Key bindings:
   '@secrets.duplicate_interactive':C;
   '@secrets.paste_interactive':H;
   '@secrets.sel_move_interactive':M;
-  edit_menu.cell_menu.adjust_cell_origin:O;
   edit_menu.clear_all_rulers:'Shift+K';
   edit_menu.edit_options:F3;
   edit_menu.mode_menu.box:B;
