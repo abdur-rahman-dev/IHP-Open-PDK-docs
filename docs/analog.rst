@@ -12,4 +12,6 @@ Analog Design
     Simulations using ngspice     <analog/ngspice>
     Simulations using Xyce        <analog/xyce>
     Analog design using pygmid tool     <analog/pygmid>
+    Layout with KLayout            <analog/klayout>
+    Layout with GDSFactory         <analog/gdsfactory>
 
