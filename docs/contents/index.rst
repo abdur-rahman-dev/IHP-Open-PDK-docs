@@ -3,12 +3,9 @@ Libraries
 **********************
 
 
-.. only:: html
+.. toctree::
+    :maxdepth: 1
+    :caption: Contents
 
-    .. toctree::
-        :numbered:
-        :caption: Contents
-
-        01_libraries
-        02_io_library
-
+    01_libraries
+    io_library/io_library
