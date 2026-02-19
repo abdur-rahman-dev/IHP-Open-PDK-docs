@@ -26,7 +26,7 @@ After this step you can call ``xschem &`` command to run the tool, what will bri
     :align: center
     :alt: xschem main window
     :width: 600
-
+| 
 
 
 XSCHEM symbol library
@@ -56,9 +56,9 @@ The IHP-Open-PDK delivers a symbol library which can be found in ``$PDK_ROOT/$PD
 +--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+--+
 | rhigh        | Polysilicon resistor of a high sheet resistance of 1360 $\Omega / \square$                                                                    |  |
 +--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+--+
-| ntap1        | N-well diffusion contact resistance  of 262 $\Omega$                                                                                         |  |
+| ntap1        | N-well diffusion contact resistance  of 262 $\Omega$                                                                                          |  |
 +--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+--+
-| ptap1        | P-well (substrate) diffusion contact resistance  of 262 $\Omega$                                                                             |  |
+| ptap1        | P-well (substrate) diffusion contact resistance  of 262 $\Omega$                                                                              |  |
 +--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+--+
 | cap_cmim     | Metal-Insulator-Metal capacitor                                                                                                               |  |
 +--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+--+
