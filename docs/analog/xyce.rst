@@ -3,13 +3,13 @@ Simulation using Xyce
 
 .. _xyce_configuration_lbl:
 
-XYCE installation on ubuntu 22.04 LTS 
-======================================
+Xyce installation on Ubuntu LTS (22.04 and newer) 
+=================================================
 
 Xyce installation is demanding due to the specific version issues and multiple dependencies.
 Apart the build requirements listed in the `building guide <https://xyce.sandia.gov/documentation-tutorials/building-guide/>`_ the key parts for installation are:
 
-#. installation of trilinos 
+#. installation of Trilinos 
 #. installation of ADMS
 #. installation of Xyce
 
