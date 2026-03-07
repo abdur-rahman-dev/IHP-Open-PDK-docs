@@ -65,4 +65,4 @@ Main Processing Sequence and Cross-Section Schematic
 
 .. tip::
     - ILDO consists of oxide (590nm) and nitride (50nm).
-    - For a homogenous ILDO with εR=4.1 the effective thickness corresponds to deff=620nm.
+    - For a homogeneous ILDO with εR=4.1 the effective thickness corresponds to deff=620nm.

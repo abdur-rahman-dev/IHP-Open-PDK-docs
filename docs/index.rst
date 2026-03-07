@@ -1,25 +1,25 @@
-
-******************************************************
-Welcome to 130nm BiCMOS Open Source PDK documentation!
-******************************************************
+**********************************************************
+Welcome to IHP 130nm BiCMOS Open Source PDK documentation!
+**********************************************************
 
 .. include:: common.inc
 
 .. toctree::
     :hidden:
-    
+
     contents
     install
     process_specs/process_specs
     layout_rules/rules_man
     analog
     digital
+    finishing/index.rst
     verification
     contrib
     references
 
 .. warning::
-    This documentation is currently a **work in progress**.
+    This documentation is currently **work in progress**.
 
 .. image:: _static/IHP_logo.png
     :align: center
@@ -40,4 +40,3 @@ used to create many designs that have been successfully manufactured in signific
 the open source PDK is not intended to be used for production at this moment.
 
 The PDK will be tagged with a production version when ready to do production design.
-

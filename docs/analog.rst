@@ -11,7 +11,9 @@ Analog Design
     Schematic capture with QUCS-S <analog/qucs>
     Simulations using ngspice     <analog/ngspice>
     Simulations using Xyce        <analog/xyce>
+    Simulations using Gnucap        <analog/gnucap>
     Analog design using pygmid tool     <analog/pygmid>
-    Layout with KLayout            <analog/klayout>
+    Layout design using klayout     <analog/klayout>
     Layout with GDSFactory         <analog/gdsfactory>
+    
 

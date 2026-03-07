@@ -1,0 +1,4 @@
+"sg13g2_IOPadVdd","1.2V","Core power pad (VDD)"
+"sg13g2_IOPadVss","0V","Core ground pad (VSS)"
+"sg13g2_IOPadIOVdd","3.3V","IO power pad (IOVDD)"
+"sg13g2_IOPadIOVss","0V","IO ground pad (IOVSS)"

@@ -1,16 +1,16 @@
 Dependencies 
 ============
 
-The tools supported by IHP-Open-PDK are open source and are not always distributed as biaries or through 
-packages available to install using programs such as apt-get. In order to use the tools one have to compile/build it 
-from the sourc code usually available on platfroms like github, gitlab, sourcforge codeberg. 
+The tools supported by IHP-Open-PDK are open source and are not always distributed as binaries or through 
+packages available to install using programs such as apt-get. In order to use the tools one has to compile/build it 
+from the source code usually available on platforms like GitHub, GitLab, SourceForge, or Codeberg. 
 Having all the build tools installed and meeting all necessary dependencies the installation program is usually 
-strightforward. 
+straightforward. 
 
 Build tools 
 ------------------
-The first step to build a tool/program from a source code is to have build tools, what means necesary comilers and make systems,
-which allows the user to build the source code. 
+The first step to build a tool/program from a source code is to have build tools, what means necessary compilers and make systems,
+which allow the user to build the source code. 
 
 
 .. code-block:: bash
@@ -31,11 +31,11 @@ Before performing installation from sources it is recommended to install some to
   sudo apt-get install -y btop tree xterm graphviz git
   sudo apt-get install -y octave liboctave-dev
 
-Build depenencies 
+Build dependencies 
 ------------------
 
 Below we present the key dependencies which have to be installed in order to build the tools supported by our PDK.
-The vast majority can be build form sources however some of them require manual compilation and install.
+The vast majority can be built from sources however some of them require manual compilation and install.
 
 .. code-block:: bash
  
@@ -52,12 +52,12 @@ The vast majority can be build form sources however some of them require manual 
   sudo apt-get install -y libxrender1 libxrender-dev 
   sudo apt-get install -y libxcb1 libx11-xcb-dev
   sudo apt-get install -y libcairo2 libcairo2-dev libxaw7-dev
-  sudo apt-get install -y libgz libfl2 libfl-dev zlibc zzlib1g zlib1g-dev libz-dev libgit2-dev
+  sudo apt-get install -y libgz libfl2 libfl-dev zlibc zlib1g zlib1g-dev libz-dev libgit2-dev
   sudo apt-get install -y libgoogle-perftools-dev 
   sudo apt-get install -y gengetopt groff pod2pdf libhpdf-dev
   sudo apt-get install -y libfftw3-dev 
-  suoo apt-get install -y libxml-libxml-perl libgd-perl
-  suoo apt-get install -y libsuitesparse-dev gfortran swig libspdlog-dev libeigen3-dev liblemon-dev
+  sudo apt-get install -y libxml-libxml-perl libgd-perl
+  sudo apt-get install -y libsuitesparse-dev gfortran swig libspdlog-dev libeigen3-dev liblemon-dev
 
 
 On Ubuntu 24.04 build ``gperf`` from `this page <https://www.gnu.org/software/gperf>`_.

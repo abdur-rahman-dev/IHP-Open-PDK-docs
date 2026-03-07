@@ -6,5 +6,6 @@ Digital Design
     :name: digital
 
     With OpenROAD <digital/openroad>
-    With OpenLane <digital/openlane>
-    With your design flow? <digital/new>
+    LibreLane Setup Guide <digital/librelane_setup>
+    With LibreLane <digital/librelane>
+    Full Chip Design With Librelane <digital/librelane_full_chip>
