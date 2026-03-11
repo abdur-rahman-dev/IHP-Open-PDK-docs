@@ -13,5 +13,7 @@ Analog Design
     Simulations using Xyce        <analog/xyce>
     Simulations using Gnucap        <analog/gnucap>
     Analog design using pygmid tool     <analog/pygmid>
-    Layout design using klayout     <analog/klayout>
+    Analog design using KLayout tool     <analog/klayout>
+    Layout with GDSFactory         <analog/gdsfactory>
+    
 
