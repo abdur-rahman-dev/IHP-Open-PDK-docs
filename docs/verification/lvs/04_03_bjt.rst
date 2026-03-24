@@ -13,7 +13,7 @@ npn13G2
    * - Property
      - Value
    * - Description
-     - npn SiGe:C HBT high performance device, 300 GHz fT. Layout configuration BEC
+     - npn SiGe:C HBT high performance device, 350 GHz fT. Layout configuration CBE
    * - Device Recognition
      - Activ, nSD.blk, TRANS, EmWind, ptab (pSD + Activ.mask)
    * - Model Name
@@ -21,9 +21,9 @@ npn13G2
    * - Layout Cell Name
      - sg13g2_pr - npn13G2
    * - Parameters
-     - We, le, AE, PE, m/NE
+     - we, le, AE, PE, Nx, m
    * - Netlist Syntax
-     - `Q1 C B E sub! npn13G2 le=900.0n we=70.00n m=1`
+     - `Q1 C B E sub! npn13G2 le=900.0n we=70.00n Nx=1 m=1`
 
 **Parameters Information**
 
@@ -39,12 +39,12 @@ npn13G2
    * - we
      - Emitter width (Fixed)
      - ❌
-     - ❌
+     - ✅
      - ❌
    * - le
      - Emitter length (Fixed)
      - ❌
-     - ❌
+     - ✅
      - ❌
    * - AE
      - Emitter area (Fixed), will be calculated from WE/LE if not explicitly provided.
@@ -56,9 +56,14 @@ npn13G2
      - ❌
      - ✅
      - ✅
-   * - m/NE
-     - Number of BJTs/Emitters (multiplicity)
-     - ❌
+   * - Nx
+     - x-Multiplier
+     - ✅
+     - ✅
+     - ✅
+   * - m
+     - Number of BJT devices (multiplicity)
+     - ✅
      - ✅
      - ✅
 
