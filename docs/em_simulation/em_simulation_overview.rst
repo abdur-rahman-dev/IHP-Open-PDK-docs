@@ -207,7 +207,9 @@ EMStudio is available for Windows and Linux. For Linux, follow
 instructions to build the software from the github repository. For
 Windows, a setup file is provided, see instructions in github readme.
 
-|image3|\ |image4|
+|image3|
+
+|image4|
 
 Graphical user interface: setupEM
 ---------------------------------
@@ -227,7 +229,10 @@ setupEM covers typical use cases with one single GDSII file, where each
 port is excited for full S-parameter data. Antenna far field pattern and
 multi-chip configuration with mixed technologies are not supported yet.
 
-| |image5|\ |image6|
+|image5|
+
+|image6|
+
 | The simulation model is defined in setupEM, providing 3D model
   preview, and the simulation can be run from within the user interface.
   This starts an external Palace solver process, but all messages are
@@ -365,7 +370,9 @@ Transmission line extraction giving data for RLCG model:
 
 |image13|
 
-|image14|\ For inductor and MIM extraction, you also get a plot with the
+|image14|
+
+For inductor and MIM extraction, you also get a plot with the
 model response compared to your original input data.
 
 Black box vector fit
@@ -674,14 +681,16 @@ loss, so that we don’t need to mesh into skin effect.
   gds2palace, with a frequency sweep from DC to 100 GHz. Total
   simulation time is **200 seconds**, at 231k degrees of freedom.
 | If refined_cellsize is **increased to 5 micron**, total simulation
-  time is **111** **seconds for the full sweep**, at 135k degrees of
+  time is **111 seconds for the full sweep**, at 135k degrees of
   freedom. Single frequency simulation time is less than 10 seconds
   then.
 
 Below is a comparison of results, including data from a Method of
 Moments solver for reference.
 
-|image30|\ |image31|
+|image30|
+
+|image31|
 
 Butler matrix 93 GHz 
 ---------------------
@@ -735,7 +744,9 @@ value of refined_cellsize.
 Here, an initial value of 5 micron was used, and a refined value of 2
 micron was used to verify that result at some selected frequencies.
 
-|image33|\ |image34|
+|image33|
+
+|image34|
 
 Different from openEMS FDTD, the FEM simulation is done in frequency
 domain, so that the number of frequency points has a strong effect on
@@ -783,7 +794,9 @@ full evaluation of the 8-port model.
 
 |image35|
 
-|image36|\ |image37|
+|image36|
+
+|image37|
 
 It should be noted that in Palace, simulating all ports will require
 extra simulation time compared to single port excitation. To verify
