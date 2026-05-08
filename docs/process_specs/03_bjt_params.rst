@@ -1,6 +1,15 @@
 Bipolar Parameters
 ==================
 
+.. role:: red
+   :class: red-text
+
+.. role:: blue
+   :class: blue-text
+
+.. role:: ital
+   :class: blue-text2
+
 .. note::
     For process control monitoring minimum devices are used.
 

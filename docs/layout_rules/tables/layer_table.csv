@@ -185,7 +185,7 @@ GraphPas,drawing,89,0,"Additional passivation for graphene
 structures"
 EmWind3,drawing,90,0,Defines G3 npn emitter window
 EmWiHV3,drawing,91,0,Defines G3 HV npn emitter window
-RedBuLay,drawing,92,0,"Burried Layer with reduced dose for isolated
+RedBuLay,drawing,92,0,"Buried Layer with reduced dose for isolated
 NLDMOS"
 SMOS,drawing,93,0,"Extraction recognition layer for special
 CMOS devices"

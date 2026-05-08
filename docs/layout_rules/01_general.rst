@@ -4,7 +4,7 @@ General
 Scope
 -----
 
-This document describes the design rules for IHPs SG13G2 SiGe BiCMOS technology.
+This document describes the design rules for IHP SG13G2 SiGe BiCMOS technology.
 
 .. _list_of_abbreviations:
 
@@ -14,7 +14,6 @@ List of abbreviations
 .. csv-table:: List of abbreviations
     :header: "Abbreviation", "Explanation"
     :widths: 100, 200
-    :stub-columns: 1
     :file: tables/list_abbrev.csv
 
 Layout Information
@@ -33,4 +32,4 @@ Layout Information
 Reference documents
 -------------------
 
-[RD 1] IHP SG13G2 Process specification Rev. 1.3
+[RD 1] IHP SG13G2 Process specification Rev. 1.2

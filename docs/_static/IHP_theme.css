@@ -37,3 +37,16 @@
     writing-mode: vertical-lr;
     transform: rotate(-180deg);
 }
+
+table.drc-table {
+    table-layout: fixed;
+    width: 96%;
+}
+
+table.drc-table td:nth-child(1) {
+    width: 20%;
+}
+
+table.drc-table td:nth-child(2) {
+    width: 80%;
+}

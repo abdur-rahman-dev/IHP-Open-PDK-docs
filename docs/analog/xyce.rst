@@ -3,13 +3,13 @@ Simulation using Xyce
 
 .. _xyce_configuration_lbl:
 
-XYCE installation on ubuntu 22.04 LTS 
-======================================
+Xyce installation on Ubuntu LTS (22.04 and newer) 
+=================================================
 
-Xyce installation is demanding due to the specific version isssues and multiple dependencies.
-Apart the bulid requirements listed in the `building guide <https://xyce.sandia.gov/documentation-tutorials/building-guide/>`_ the key parts for insallation are:
+Xyce installation is demanding due to the specific version issues and multiple dependencies.
+Apart the build requirements listed in the `building guide <https://xyce.sandia.gov/documentation-tutorials/building-guide/>`_ the key parts for installation are:
 
-#. installation of trilinos 
+#. installation of Trilinos 
 #. installation of ADMS
 #. installation of Xyce
 
@@ -94,8 +94,8 @@ The installation process consists of the following commands:
 ADMS installation
 -----------------
 
-After successfull installation one can procees installing ADMS. The installation process 
-is strightforward and well described on the `ASMS github repository <https://github.com/Qucs/ADMS>`_.
+After successful installation one can proceed with installing ADMS. The installation process 
+is straightforward and well described on the `ADMS GitHub repository <https://github.com/Qucs/ADMS>`_.
 Use ``cmake`` based build
 
 XYCE installation
@@ -108,7 +108,7 @@ The following steps of Xyce installation are similar to Trilinos
     cd 
     git clone https://github.com/Xyce/Xyce.git
     cd Xyce
-    git checkout Release-7-8-0
+    git checkout Release-7.8.0
     ./bootstrap
     cd 
     mkdir xyce_build
@@ -140,22 +140,6 @@ To finish the installation execute:
     make 
     sudo make install
 
-
-Ngspice is an open source simulator hosted at `this <https://sourceforge.net/p/ngspice/ngspice/ci/master/tree/>`_ page.
-The tool is well documented and the user manual can be found `here <https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml>`_.
-In order to install ngspice the recomended method is the following:
-
-.. code-block:: bash
-    
-    git clone https://git.code.sf.net/p/ngspice/ngspice ngspice-ngspice
-    cd ngspice-ngspice
-    ./configure --enable-osdi
-    make
-    sudo make install
-    cd ..
-    rm -rf ngspice-ngspice
-
-Xyce basic example
 ===================
 A basic spice level netlist, which simulates DC sweep resistors, is shown below:
 
@@ -236,4 +220,3 @@ The netlist was generated using `xschem` configured to use `Xyce` as a simulator
     :width: 800
     :align: center
     :alt: Xyce DC sweep of resistors
-

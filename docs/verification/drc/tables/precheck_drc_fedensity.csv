@@ -1,0 +1,5 @@
+GFil.g,GFil.g Min. global GatPoly density [%],15
+AFil.g,AFil.g Min. global Activ density [%],35
+AFil.g1,AFil.g1 Max. global Activ density [%],55
+AFil.g2,AFil.g2 Min. Activ coverage ratio for any 800 x 800 µm² chip area [%],25
+AFil.g3,AFil.g3 Max. Activ coverage ratio for any 800 x 800 µm² chip area [%],65

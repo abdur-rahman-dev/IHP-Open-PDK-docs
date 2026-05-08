@@ -52,6 +52,7 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.todo",
     "sphinxcontrib.bibtex",
+    "myst_parser",
 ]
 
 bibtex_bibfiles = ['refs.bib']
@@ -63,8 +64,8 @@ templates_path = ["_templates"]
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-# source_suffix = ['.rst', '.md']
-source_suffix = ".rst"
+source_suffix = ['.rst', '.md']
+# source_suffix = ".rst"
 
 # The master toctree document.
 master_doc = "index"
@@ -145,17 +146,17 @@ html_logo = "_static/IHP_logo.png"
 # documentation.
 # https://sphinx-symbiflow-theme.readthedocs.io/en/latest/customization.html
 html_theme_options = {
-    "nav_title": "130nm BiCMOS Open Source PDK",
+    #    "nav_title": "130nm BiCMOS Open Source PDK",
     #   "color_primary": "red",
     #"color_accent": "teal",
     # Set the repo location to get a badge with stats
     #"github_url": "https://github.com/IHP-GmbH/IHP-Open-PDK-docs",
-    "repo_name": " IHP-Open-PDK-docs",
-    "repo_type": "github",
-    "globaltoc_depth": 0,
+    #   "repo_name": " IHP-Open-PDK-docs",
+    #"repo_type": "github",
+    # "globaltoc_depth": 0,
     "globaltoc_collapse": True,
     # Hide the symbiflow links
-    "hide_symbiflow_links": True,
+    #"hide_symbiflow_links": True,
     #"license_url": "https://www.apache.org/licenses/LICENSE-2.0",
 }
 
