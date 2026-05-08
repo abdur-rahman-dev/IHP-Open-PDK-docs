@@ -15,6 +15,7 @@ Welcome to IHP 130nm BiCMOS Open Source PDK documentation!
     digital
     finishing/index.rst
     verification
+    em_simulation
     contrib
     references
 
